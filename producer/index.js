@@ -5,7 +5,8 @@ const stream = Kafka.Producer.createWriteStream(
 {}, { topic: 'test' })
 
 function queueMessage() {
-    const success = stream.write(Buffer.from('hi'))
+    const event = { category: 'DOG', noise: 'bark' }
+    const success = stream.write(JSON.stringify(event))
     
     if(success) {
         console.log('Message wrote to stream');

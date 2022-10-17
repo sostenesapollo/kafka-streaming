@@ -12,5 +12,5 @@ consumer.on('ready', ()=>{
     consumer.subscribe(['test'])
     consumer.consume()
 }).on('data', (data)=>{
-    console.log(`Received message: ${data.value}`);
+    console.log(`Received message:`, JSON.parse(data.value));
 })
